@@ -9,7 +9,7 @@ import { Rower } from '../services/rowers/rowers.service';
   styleUrls: ['./rower-list.component.css']
 })
 export class RowerListComponent implements OnInit {
-  private rowersList: Rower[];
+  rowersList: Rower[];
   constructor(
     private rowersService: RowersService
   ) { }
