@@ -13,12 +13,17 @@ import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/rowers/mock-rower.service'
 
+import { MdTableModule } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk';
+
 @NgModule({
   imports: [
     CommonModule,
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    CdkTableModule,
+    MdTableModule
   ],
   declarations: [
     DashboardComponent,
