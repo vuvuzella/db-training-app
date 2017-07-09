@@ -9,6 +9,8 @@ import { DataSource } from '@angular/cdk';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject' ;
 import { Observable } from 'rxjs/Observable';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @Component({
   selector: 'app-rower-list',
   templateUrl: './rower-list.component.html',
@@ -16,11 +18,12 @@ import { Observable } from 'rxjs/Observable';
 })
 export class RowerListComponent implements OnInit {
   rowersList: ExampleDataSource;
+  isDelete: Boolean = false;
   displayedColumns = [
     'id', 'firstName',
     'lastName', 'age',
     'weight', 'side',
-    'update'
+    'update', 'delete'
   ];
   constructor(
     private rowersService: RowersService
@@ -29,6 +32,11 @@ export class RowerListComponent implements OnInit {
   ngOnInit() {
     this.rowersService.getRowers()
       .then(response => this.rowersList = new ExampleDataSource(response));
+  }
+
+  delete(): void {
+    console.log('delete!')
+    this.isDelete = !this.isDelete;
   }
 
 }

@@ -1,54 +1,59 @@
-<p>
-  rower-list works!
-</p>
+<md-card>
+  <md-card-title>Rower list</md-card-title>
+  <md-card-content>
+    <md-table #table [dataSource]="rowersList">
+      <ng-container cdkColumnDef="id">
+        <md-header-cell *cdkHeaderCellDef> Id </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.id}}</md-cell>
+      </ng-container>
 
-<div>
-  <md-table #table [dataSource]="rowersList">
+      <ng-container cdkColumnDef="firstName">
+        <md-header-cell *cdkHeaderCellDef> First Name </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.firstName}}</md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="id">
-      <md-header-cell *cdkHeaderCellDef> Id </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.id}}</md-cell>
-    </ng-container>
+      <ng-container cdkColumnDef="lastName">
+        <md-header-cell *cdkHeaderCellDef> Last Name </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.lastName}}</md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="firstName">
-      <md-header-cell *cdkHeaderCellDef> First Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.firstName}}</md-cell>
-    </ng-container>
+      <ng-container cdkColumnDef="age">
+        <md-header-cell *cdkHeaderCellDef> Age </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.age}}</md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="lastName">
-      <md-header-cell *cdkHeaderCellDef> Last Name </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.lastName}}</md-cell>
-    </ng-container>
+      <ng-container cdkColumnDef="weight">
+        <md-header-cell *cdkHeaderCellDef> Weight </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.weight}}</md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="age">
-      <md-header-cell *cdkHeaderCellDef> Age </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.age}}</md-cell>
-    </ng-container>
+      <ng-container cdkColumnDef="side">
+        <md-header-cell *cdkHeaderCellDef> Side </md-header-cell>
+        <md-cell *cdkCellDef="let row"> {{row.side}}</md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="weight">
-      <md-header-cell *cdkHeaderCellDef> Weight </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.weight}}</md-cell>
-    </ng-container>
+      <ng-container cdkColumnDef="update">
+        <md-header-cell *cdkHeaderCellDef></md-header-cell>
+        <md-cell *cdkCellDef="let row">
+          <button>Update</button>
+        </md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="side">
-      <md-header-cell *cdkHeaderCellDef> Side </md-header-cell>
-      <md-cell *cdkCellDef="let row"> {{row.side}}</md-cell>
-    </ng-container>
+      <ng-container cdkColumnDef="delete">
+        <md-header-cell *cdkHeaderCellDef></md-header-cell>
+        <md-cell *cdkCellDef="let row">
+          <div *ngIf="isDelete">
+            <button>Delete</button>
+          </div>
+        </md-cell>
+      </ng-container>
 
-    <ng-container cdkColumnDef="update">
-      <md-header-cell *cdkHeaderCellDef></md-header-cell>
-      <md-cell *cdkCellDef="let row">
-        <button>Update</button>
-      </md-cell>
-    </ng-container>
+      <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
 
-    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-
-  </md-table>
-</div>
-
-<div>
-  <button>Add</button>
-  <button>Delete</button>
-</div>
+    </md-table>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>Add</button>
+  </md-card-actions>
+</md-card>

@@ -13,8 +13,16 @@ import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/rowers/mock-rower.service'
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+// layout
 import { MdTableModule } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk';
+import { MdCardModule } from '@angular/material';
+import { MdButtonModule } from '@angular/material';
+import { MdToolbarModule } from '@angular/material';
+import { MdSidenavModule } from '@angular/material';
+import { SideNavComponent } from './side-nav/side-nav.component';
 
 @NgModule({
   imports: [
@@ -23,11 +31,17 @@ import { CdkTableModule } from '@angular/cdk';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     DashboardRoutingModule,
     CdkTableModule,
-    MdTableModule
+    MdTableModule,
+    MdCardModule,
+    MdButtonModule,
+    MdToolbarModule,
+    MdSidenavModule,
+    FlexLayoutModule
   ],
   declarations: [
     DashboardComponent,
-    RowerListComponent
+    RowerListComponent,
+    SideNavComponent
   ],
   providers: [
     RowersService,
