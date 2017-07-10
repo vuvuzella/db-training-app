@@ -1,0 +1,5 @@
+.dashboard-sidenav {
+    z-index: 3;
+    position: relative;
+    overflow: hidden;
+}

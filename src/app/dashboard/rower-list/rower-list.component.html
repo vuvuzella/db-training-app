@@ -35,16 +35,14 @@
       <ng-container cdkColumnDef="update">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
         <md-cell *cdkCellDef="let row">
-          <button>Update</button>
+          <button md-button>Update</button>
         </md-cell>
       </ng-container>
 
       <ng-container cdkColumnDef="delete">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
         <md-cell *cdkCellDef="let row">
-          <div *ngIf="isDelete">
-            <button>Delete</button>
-          </div>
+          <button md-button>Delete</button>
         </md-cell>
       </ng-container>
 

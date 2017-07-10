@@ -1,20 +1,11 @@
-<md-sidenav-container style="z-index: -1;">
+<md-sidenav-container class="dashboard-sidenav">
 
   <md-sidenav #sidenav mode="side" opened="true">
     <app-side-nav></app-side-nav>
   </md-sidenav>
 
-  <div>
+  <div class="dashboard-router-outlet">
     <router-outlet></router-outlet>
   </div>
-
-  <md-card>
-    <md-card-title>Card 1</md-card-title>
-    <md-card-content>asdf</md-card-content>
-  </md-card>
-  <md-card>
-    <md-card-title>Card 2</md-card-title>
-    <md-card-content>asdf</md-card-content>
-  </md-card>
 
 </md-sidenav-container>

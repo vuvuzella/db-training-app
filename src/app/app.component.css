@@ -1,0 +1,4 @@
+div.toolbar {
+    z-index: 8;
+    position: relative;
+}
