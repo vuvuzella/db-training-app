@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Modules or components imports
+import { DashboardModule } from './dashboard/dashboard.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'dashboard',
+        loadChildren: () => DashboardModule
+    },
+    {
 
         path: '**',
         component: NotFoundComponent
@@ -23,7 +28,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes, {enableTracing: true})
     ],
     exports: [
         RouterModule

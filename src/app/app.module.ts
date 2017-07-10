@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { DashboardModule } from './dashboard/dashboard.module';
+// import { DashboardModule } from './dashboard/dashboard.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AppRoutingModule } from './app-routing.module'
@@ -21,8 +21,10 @@ import { MdButtonModule } from '@angular/material';
   ],
   imports: [
     BrowserModule,
-    DashboardModule,
+    // Root routes, followed by other modules with internal routes
     AppRoutingModule,
+    // DashboardModule,
+
     FlexLayoutModule,
     MaterialModule,
     MdToolbarModule,

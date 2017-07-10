@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
-import { RowerListComponent } from './rower-list/rower-list.component'
+import { RowerModule } from './rower/rower.module';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
     children: [
       {
         path: '',
-        redirectTo: 'list',
+        redirectTo: 'rower',
         pathMatch: 'full'
       },
       {
-        path: 'list',
-        component: RowerListComponent
+        path: 'rower',
+        loadChildren: () => RowerModule
       }
     ]
   }

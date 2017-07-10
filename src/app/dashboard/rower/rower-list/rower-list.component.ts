@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RowersService } from '../services/rowers/rowers.service';
-import { Rower } from '../services/rowers/rowers.service';
+import { RowersService } from '../../services/rowers/rowers.service';
+import { Rower } from '../../services/rowers/rowers.service';
 
 import { MdTableModule } from '@angular/material';
 
