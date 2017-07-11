@@ -35,14 +35,14 @@
       <ng-container cdkColumnDef="update">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
         <md-cell *cdkCellDef="let row">
-          <button md-button>Update</button>
+          <button md-raised-button (click)="edit(row.id)">Update</button>
         </md-cell>
       </ng-container>
 
       <ng-container cdkColumnDef="delete">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
         <md-cell *cdkCellDef="let row">
-          <button md-button>Delete</button>
+          <button md-raised-button>Delete</button>
         </md-cell>
       </ng-container>
 
@@ -52,6 +52,6 @@
     </md-table>
   </md-card-content>
   <md-card-actions>
-    <button md-button>Add</button>
+    <button md-raised-button (click)="add()">Add</button>
   </md-card-actions>
 </md-card>

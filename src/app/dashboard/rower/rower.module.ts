@@ -12,20 +12,30 @@ import { CdkTableModule } from '@angular/cdk';
 import { MdCardModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
 import { MdToolbarModule } from '@angular/material';
+import { RowerAddComponent } from './rower-add/rower-add.component';
+import { RowerEditComponent } from './rower-edit/rower-edit.component';
+import { MdInputModule } from '@angular/material';
+import { MdSelectModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule, ReactiveFormsModule,
     RowerRoutingModule,
     CdkTableModule,
     MdTableModule,
     MdCardModule,
     MdButtonModule,
     MdToolbarModule,
+    MdInputModule,
+    MdSelectModule,
   ],
   declarations: [
     RowerComponent,
-    RowerListComponent
+    RowerListComponent,
+    RowerAddComponent,
+    RowerEditComponent
   ],
   providers: [RowersService]
 })

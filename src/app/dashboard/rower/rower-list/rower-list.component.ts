@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { RowersService } from '../../services/rowers/rowers.service';
 import { Rower } from '../../services/rowers/rowers.service';
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+
 @Component({
   selector: 'app-rower-list',
   templateUrl: './rower-list.component.html',
@@ -19,6 +21,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 export class RowerListComponent implements OnInit {
   rowersList: ExampleDataSource;
   isDelete: Boolean = false;
+  private urlPath: string;
   displayedColumns = [
     'id', 'firstName',
     'lastName', 'age',
@@ -26,17 +29,38 @@ export class RowerListComponent implements OnInit {
     'update', 'delete'
   ];
   constructor(
-    private rowersService: RowersService
+    private rowersService: RowersService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.rowersService.getRowers()
       .then(response => this.rowersList = new ExampleDataSource(response));
+    this.urlPath = this.getParentPath();
   }
 
   delete(): void {
     console.log('delete!')
     this.isDelete = !this.isDelete;
+  }
+
+  add(): void {
+    this.router.navigate([`${this.urlPath}add`]);
+  }
+
+  edit(id: number): void {
+    this.router.navigate([`${this.urlPath}edit/` + id]);
+  }
+
+  getParentPath(): string {
+    let urlPath = '';
+    this.activatedRoute.parent.pathFromRoot
+      .map((actRoute: ActivatedRoute) =>
+        actRoute.url.
+          subscribe((val) => urlPath += val.length ? val[0].path + '/' : '' )
+          .unsubscribe())
+    return urlPath;
   }
 
 }
