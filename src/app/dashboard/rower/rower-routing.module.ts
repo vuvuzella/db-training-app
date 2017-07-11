@@ -6,7 +6,7 @@ import { RowerListComponent } from './rower-list/rower-list.component';
 import { RowerAddComponent } from './rower-add/rower-add.component';
 import { RowerEditComponent } from './rower-edit/rower-edit.component';
 
-const routes: Routes = [
+const rowerRoutes: Routes = [
     {
         path: '',
         component: RowerComponent,
@@ -34,7 +34,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
-      RouterModule.forChild(routes)
+      RouterModule.forChild(rowerRoutes)
     ],
     exports: [
         RouterModule

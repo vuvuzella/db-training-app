@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-// import { RowerListComponent } from './rower-list/rower-list.component';
 
 import { RowersService } from './services/rowers/rowers.service';
 import { Rower } from './services/rowers/rowers.service';

@@ -17,7 +17,8 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        loadChildren: () => DashboardModule
+        // loadChildren: () => DashboardModule
+        loadChildren: 'app/dashboard/dashboard.module#DashboardModule'
     },
     {
 
@@ -31,7 +32,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes, {enableTracing: true})
     ],
     exports: [
-        RouterModule
+        RouterModule,
     ],
     providers: []
 })

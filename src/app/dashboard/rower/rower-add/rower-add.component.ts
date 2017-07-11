@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rower-add.component.css']
 })
 export class RowerAddComponent implements OnInit {
-  private sides = ['stroke', 'bow', 'timon and pumba', 'drummer'];
+  sides: string[] = ['stroke', 'bow', 'timon and pumba', 'drummer'];
   constructor() { }
 
   ngOnInit() {
