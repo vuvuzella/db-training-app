@@ -4,7 +4,7 @@
     <md-table #table [dataSource]="rowersList">
       <ng-container cdkColumnDef="id">
         <md-header-cell *cdkHeaderCellDef> Id </md-header-cell>
-        <md-cell *cdkCellDef="let row"> {{row.id}}</md-cell>
+        <md-cell *cdkCellDef="let row; let i = index"> {{i+1}}</md-cell>
       </ng-container>
 
       <ng-container cdkColumnDef="firstName">
@@ -35,14 +35,14 @@
       <ng-container cdkColumnDef="update">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
         <md-cell *cdkCellDef="let row">
-          <button md-raised-button (click)="edit(row.id)">Update</button>
+          <button md-raised-button (click)="edit(row.$key)">Update</button>
         </md-cell>
       </ng-container>
 
       <ng-container cdkColumnDef="delete">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
         <md-cell *cdkCellDef="let row; let i = index">
-          <button md-raised-button (click)="delete(row.id, i)">Delete</button>
+          <button md-raised-button (click)="delete(row.$key, i)">Delete</button>
         </md-cell>
       </ng-container>
 

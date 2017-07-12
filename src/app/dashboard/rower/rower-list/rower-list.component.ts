@@ -41,7 +41,7 @@ export class RowerListComponent implements OnInit {
     this.urlPath = this.getParentPath();
   }
 
-  delete(rowerId: number, index: number): void {
+  delete(rowerId: string, index: number): void {
     this.rowersService.deleteRower(rowerId)
       .then(() => this.sampleDb.delete(index))
   }
@@ -50,7 +50,7 @@ export class RowerListComponent implements OnInit {
     this.router.navigate([`${this.urlPath}add`]);
   }
 
-  edit(id: number): void {
+  edit(id: string): void {
     this.router.navigate([`${this.urlPath}edit/`, id]);
   }
 

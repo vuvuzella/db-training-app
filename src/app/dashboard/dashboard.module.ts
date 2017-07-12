@@ -12,7 +12,6 @@ import { MdSidenavModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SideNavComponent } from './side-nav/side-nav.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

@@ -10,11 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./rower-edit.component.css']
 })
 export class RowerEditComponent implements OnInit {
+
   private sides: string[] = ['stroke', 'bow', 'timon and pumba', 'drummer'];
   private formData: FormGroup;
   private submitted: Boolean = false;
-  private rowerId: number;
+  private rowerId: string;
   private rowerInfo: Rower;
+
   constructor(
     private formBuilder: FormBuilder,
     private rowersService: RowersService,
@@ -22,12 +24,8 @@ export class RowerEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log(this.rowerId);
-    // this.rowersService.getRower(this.rowerId)
-    //   .then(response => this.rowerInfo = response)
-    //   .then(() => {
-    //     this.formData = this.formBuilder.group(this.rowerInfo);
-    //   });
+    this.rowerId = this.getParamId();
+    console.log(this.rowerId);
 
     this.actRoute.data
       .subscribe((data: {rower: Rower}) => {
@@ -37,15 +35,21 @@ export class RowerEditComponent implements OnInit {
 
   }
 
-  onSubmit(): void {
-    console.log('Edit submitted');
+  onSubmit(formGroup: FormGroup): void {
+    console.log(this.rowerId);
+    const updatedRower: Rower = formGroup.value as Rower;
+    this.rowersService.updateRower(updatedRower, this.rowerId)
+      .then(response => {
+        console.log(response);
+        this.formData = this.formBuilder.group(response);
+      });
   }
 
-  getParamId(): number {
-    let id: number;
+  getParamId(): string {
+    let id: string;
     this.actRoute.paramMap
       .map(params => params.get('id'))
-      .subscribe(rowerId => id = +rowerId)
+      .subscribe(rowersId => id = rowersId)
       .unsubscribe();
     return id;
   }

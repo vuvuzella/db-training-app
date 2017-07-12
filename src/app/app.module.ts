@@ -27,7 +27,7 @@ import { MdButtonModule } from '@angular/material';
     FlexLayoutModule,
     MaterialModule,
     MdToolbarModule,
-    MdButtonModule
+    MdButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

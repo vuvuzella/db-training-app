@@ -4,9 +4,6 @@ import { CommonModule } from '@angular/common';
 // Rower module routing module
 import { RowerRoutingModule } from './rower-routing.module';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './services/mock-rower.service'
-
 // Components to be declared
 import { RowerListComponent } from './rower-list/rower-list.component';
 import { RowerComponent } from './rower.component';
@@ -25,6 +22,10 @@ import { MdSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RowerDetailComponent } from './shared/rower-detail/rower-detail.component';
 
+// Firebase required modules
+import { environment } from '../../../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { RowerDetailComponent } from './shared/rower-detail/rower-detail.compone
     FormsModule,
     ReactiveFormsModule,
     RowerRoutingModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AngularFireModule.initializeApp(environment.firebase, 'sag1application'),
+    AngularFireDatabaseModule,
     CdkTableModule,
     MdTableModule,
     MdCardModule,

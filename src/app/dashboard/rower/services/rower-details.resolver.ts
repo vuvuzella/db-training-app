@@ -16,7 +16,7 @@ export class RowerDetailsResolver implements Resolve<Rower>{
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Rower> {
-        const id = +route.paramMap.get('id');
+        const id = route.paramMap.get('id');
         return this.rowersService.getRower(id)
             .then(response => {
                 console.log(response);
