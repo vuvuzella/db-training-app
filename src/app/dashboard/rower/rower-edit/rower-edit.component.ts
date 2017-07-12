@@ -6,9 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-rower-edit',
-  templateUrl: '../shared/rower-add-edit/rower-add-edit.shared.html',
-  styleUrls: ['../shared/rower-add-edit/rower-add-edit.shared.css',
-  './rower-edit.component.css']
+  templateUrl: './rower-edit.component.html',
+  styleUrls: ['./rower-edit.component.css']
 })
 export class RowerEditComponent implements OnInit {
   private sides: string[] = ['stroke', 'bow', 'timon and pumba', 'drummer'];
@@ -36,6 +35,10 @@ export class RowerEditComponent implements OnInit {
       })
       .unsubscribe()
 
+  }
+
+  onSubmit(): void {
+    console.log('Edit submitted');
   }
 
   getParamId(): number {

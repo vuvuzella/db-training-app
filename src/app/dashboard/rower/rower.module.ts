@@ -23,6 +23,7 @@ import { MdToolbarModule } from '@angular/material';
 import { MdInputModule } from '@angular/material';
 import { MdSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RowerDetailComponent } from './shared/rower-detail/rower-detail.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RowerComponent,
     RowerListComponent,
     RowerAddComponent,
-    RowerEditComponent
+    RowerEditComponent,
+    RowerDetailComponent,
   ],
   providers: [RowersService]
 })

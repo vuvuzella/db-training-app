@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Rower, RowersService } from '../services/rowers.service';
+import { RowerDetailComponent } from '../shared/rower-detail/rower-detail.component';
 
 @Component({
   selector: 'app-rower-add',
-  templateUrl: '../shared/rower-add-edit/rower-add-edit.shared.html',
-  styleUrls: ['../shared/rower-add-edit/rower-add-edit.shared.css',
-  './rower-add.component.css']
+  templateUrl: './rower-add.component.html',
+  styleUrls: ['./rower-add.component.css']
 })
 export class RowerAddComponent implements OnInit {
   private sides: string[] = ['stroke', 'bow', 'timon and pumba', 'drummer'];
@@ -28,7 +28,7 @@ export class RowerAddComponent implements OnInit {
     });
   }
 
-  onSubmit(formGroup: any) {
+  onSubmit(formGroup: FormGroup) {
     this.submitted = true;
     const formValue = formGroup.value;
     const newRower: Rower = new Rower(
@@ -44,6 +44,5 @@ export class RowerAddComponent implements OnInit {
       console.log('Form is invalid')
     }
   }
-
 
 }
