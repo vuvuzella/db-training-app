@@ -1,0 +1,79 @@
+<md-card>
+
+  <md-card-title>
+    Add Rower
+  </md-card-title>
+
+<!--
+  <form #f="ngForm"
+        (ngSubmit)=onSubmit(f.value)>
+-->
+<!-- use the formGroup from RowerAddComponent class -->
+
+  <form [formGroup]="formData"
+        (ngSubmit)="onSubmit(formData)"
+        novalidate>
+
+    <md-card-content>
+
+
+      <div>
+        <md-input-container>
+          <input mdInput
+                 placeholder="First Name"
+                 type="text"
+                 [formControl]="formData.controls['firstName']">
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container>
+          <input mdInput
+                 placeholder="Last Name"
+                 type="text"
+                 [formControl]="formData.controls['lastName']">
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container>
+          <input mdInput
+                 placeholder="age"
+                 type="number"
+                 name="age"
+                [formControl]="formData.controls['age']">
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-input-container>
+          <input mdInput
+                 placeholder="weight"
+                 type="number"
+                 name="weight"
+                [formControl]="formData.controls['weight']">
+        </md-input-container>
+      </div>
+
+      <div>
+        <md-select placeholder="Side"
+                   name="side"
+                   [formControl]="formData.controls['side']"
+                   [class.ng-touched]="submitted && formData.controls['side'].invalid">
+          <!-- Make options retrieved from backend server -->
+          <md-option *ngFor="let side of sides" [value]="side">
+            {{ side }}
+          </md-option>
+        </md-select>
+      </div>
+
+      </md-card-content>
+
+      <md-card-actions>
+        <button md-raised-button type="submit">Add Rower</button>
+        <button md-raised-button routerLink="../">Cancel</button>
+      </md-card-actions>
+
+    </form>
+
+</md-card>

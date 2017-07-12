@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RowerDetailsResolver } from './services/rower-details.resolver';
 
 import { RowerComponent } from './rower.component';
 import { RowerListComponent } from './rower-list/rower-list.component';
@@ -27,6 +28,9 @@ const rowerRoutes: Routes = [
             {
                 path: 'edit/:id',
                 component: RowerEditComponent,
+                resolve: {
+                    rower: RowerDetailsResolver
+                }
             },
         ]
     }
@@ -39,7 +43,7 @@ const rowerRoutes: Routes = [
     exports: [
         RouterModule
     ],
-    providers: []
+    providers: [RowerDetailsResolver]
 })
 
 export class RowerRoutingModule {}

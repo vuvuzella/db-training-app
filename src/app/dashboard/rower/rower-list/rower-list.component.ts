@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { RowersService } from '../../services/rowers/rowers.service';
-import { Rower } from '../../services/rowers/rowers.service';
+import { RowersService } from '../services/rowers.service';
+import { Rower } from '../services/rowers.service';
 
 import { MdTableModule } from '@angular/material';
 
@@ -22,6 +22,7 @@ export class RowerListComponent implements OnInit {
   rowersList: ExampleDataSource;
   isDelete: Boolean = false;
   private urlPath: string;
+  sampleDb: ExampleDatabase;
   displayedColumns = [
     'id', 'firstName',
     'lastName', 'age',
@@ -36,13 +37,13 @@ export class RowerListComponent implements OnInit {
 
   ngOnInit() {
     this.rowersService.getRowers()
-      .then(response => this.rowersList = new ExampleDataSource(response));
+      .then(response => this.rowersList = new ExampleDataSource(this.sampleDb = new ExampleDatabase(response)));
     this.urlPath = this.getParentPath();
   }
 
-  delete(): void {
-    console.log('delete!')
-    this.isDelete = !this.isDelete;
+  delete(rowerId: number, index: number): void {
+    this.rowersService.deleteRower(rowerId)
+      .then(() => this.sampleDb.delete(index))
   }
 
   add(): void {
@@ -50,7 +51,7 @@ export class RowerListComponent implements OnInit {
   }
 
   edit(id: number): void {
-    this.router.navigate([`${this.urlPath}edit/` + id]);
+    this.router.navigate([`${this.urlPath}edit/`, id]);
   }
 
   getParentPath(): string {
@@ -65,15 +66,35 @@ export class RowerListComponent implements OnInit {
 
 }
 
+// TODO: PUT THESE INTO THEIR RESPECTIVE SERVICES!!!
+export class ExampleDatabase {
+  datachange: BehaviorSubject<Rower[]> = new BehaviorSubject<Rower[]>([]);
+  get data(): Rower[] {
+    return this.datachange.value;
+  }
+
+  constructor(
+    rowerArray: Rower[]
+  ) {
+    const newData = this.data.concat(rowerArray);
+    this.datachange.next(newData);
+  }
+
+  delete(rowerId: number): void {
+    this.data.splice(rowerId, 1);
+    this.datachange.next(this.data);
+  }
+}
+
 export class ExampleDataSource extends DataSource<any> {
   constructor(
-    private rowersSource: Rower[]
+    private sampleDb: ExampleDatabase
   ) {
     super();
   }
 
   connect(): Observable<Rower[]> {
-    return new BehaviorSubject<Rower[]>(this.rowersSource);
+    return this.sampleDb.datachange;
   }
 
   disconnect() {}

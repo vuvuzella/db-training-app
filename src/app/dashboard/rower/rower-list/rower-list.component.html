@@ -41,8 +41,8 @@
 
       <ng-container cdkColumnDef="delete">
         <md-header-cell *cdkHeaderCellDef></md-header-cell>
-        <md-cell *cdkCellDef="let row">
-          <button md-raised-button>Delete</button>
+        <md-cell *cdkCellDef="let row; let i = index">
+          <button md-raised-button (click)="delete(row.id, i)">Delete</button>
         </md-cell>
       </ng-container>
 
