@@ -13,7 +13,7 @@
     </span>
   </md-toolbar>
 
-  <div fxFlex class="dashboard-router-outlet">
+  <div fxFlex class="dashboard-content-container">
 
     <md-sidenav-container>
 
@@ -22,15 +22,20 @@
           <app-side-nav></app-side-nav>
         </md-sidenav>
 
-          <router-outlet>
-          </router-outlet>
+        <div class="router-footer">
+          <div class="dashboard-router-outlet">
+            <router-outlet>
+            </router-outlet>
+          </div>
+        <md-toolbar class="mat-elevation-z"
+                    color="primary">
+          <h4> Footer </h4>
+        </md-toolbar>
+        </div>
 
     </md-sidenav-container>
 
   </div>
-  <md-toolbar class="mat-elevation-z6"
-              color="primary">
-  </md-toolbar>
 </div>
 
 <!--

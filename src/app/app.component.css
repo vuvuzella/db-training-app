@@ -1,4 +1,7 @@
 div.main-router-outlet {
+    /*
+    // Required for full screen rendering
+    */
     width: 100%;
     height: 100%;
 }

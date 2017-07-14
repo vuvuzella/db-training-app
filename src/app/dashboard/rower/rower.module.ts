@@ -27,6 +27,9 @@ import { environment } from '../../../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
+// Layouting
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -42,6 +45,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     MdToolbarModule,
     MdInputModule,
     MdSelectModule,
+    FlexLayoutModule
   ],
   declarations: [
     RowerComponent,
