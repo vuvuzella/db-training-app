@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 
-import { MdToolbarModule } from '@angular/material';
 import { MdButtonModule } from '@angular/material';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { MdButtonModule } from '@angular/material';
     AppRoutingModule,
     FlexLayoutModule,
     MaterialModule,
-    MdToolbarModule,
     MdButtonModule,
   ],
   providers: [],

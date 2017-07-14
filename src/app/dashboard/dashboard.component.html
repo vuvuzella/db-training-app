@@ -1,11 +1,62 @@
-<md-sidenav-container class="dashboard-sidenav">
+<div fxLayout="column"
+     class="dashboard-container">
 
-  <md-sidenav #sidenav mode="side" opened="true">
-    <app-side-nav></app-side-nav>
-  </md-sidenav>
+  <md-toolbar color="primary"
+               class="mat-elevation-z6">
+    <button md-icon-button
+            type="button"
+            (click)="sidenav.toggle()">
+      <i class="material-icons">menu</i>
+    </button>
+    <span>
+      Dragonboat Team Management App
+    </span>
+  </md-toolbar>
 
-  <div class="dashboard-router-outlet">
-    <router-outlet></router-outlet>
+  <div fxFlex class="dashboard-router-outlet">
+
+    <md-sidenav-container>
+
+        <md-sidenav #sidenav
+                    mode="over">
+          <app-side-nav></app-side-nav>
+        </md-sidenav>
+
+          <router-outlet>
+          </router-outlet>
+
+    </md-sidenav-container>
+
   </div>
+  <md-toolbar class="mat-elevation-z6"
+              color="primary">
+  </md-toolbar>
+</div>
 
-</md-sidenav-container>
+<!--
+<div fxLayout="column"
+     class="background-container">
+  <div class="header">header</div>
+  <div fxFlex fxLayout class=content-container>
+    <div fxFlex class="sidebar">Some sidebar</div>
+    <div fxFlex class="content">
+      <md-card>asdf</md-card>
+      <md-card>sdfasdklfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+      <md-card>sdalksdfjh</md-card>
+    </div>
+  </div>
+  <div class="footer">
+    The Foot... errr
+  </div>
+</div>
+-->

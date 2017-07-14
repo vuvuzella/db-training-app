@@ -1,5 +1,61 @@
-.dashboard-sidenav {
-    z-index: 3;
+div.dashboard-container {
+    height: 100%;
     position: relative;
     overflow: hidden;
 }
+
+md-toolbar.mat-elevation-z6 {
+    z-index: 6;
+    position: relative;
+}
+
+div.dashboard-router-outlet {
+    overflow: auto;
+}
+
+div.dashboard-router-outlet
+    > md-sidenav-container {
+    height: 100%;
+}
+
+md-sidenav-container > md-sidenav {
+    overflow: auto;
+    padding: 30px;
+}
+
+/* with mat-elevation-z2 */
+/*
+div.main-router-outlet {
+    width: 100%;
+    position: absolute;
+    overflow: auto;
+}
+
+/*
+div.background-container {
+    background-color:darkolivegreen;
+    height: 100%;
+}
+
+div.header {
+    padding: 30px;
+    background-color: red;
+}
+
+div.content-container {
+}
+
+div.content {
+    background-color: green;
+    overflow: auto;
+}
+
+div.sidebar {
+    background-color: yellow;
+}
+
+div.footer {
+    padding: 20px;
+    background-color: blue;
+}
+*/
