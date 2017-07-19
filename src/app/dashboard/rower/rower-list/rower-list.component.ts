@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { RowersService } from '../services/rowers.service';
 import { Rower } from '../services/rowers.service';
@@ -11,6 +11,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject' ;
 import { Observable } from 'rxjs/Observable';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+import 'rxjs/add/operator/switchMap';
 
 
 @Component({
@@ -29,6 +31,8 @@ export class RowerListComponent implements OnInit {
     'weight', 'side',
     'update', 'delete'
   ];
+  private fromAddEditRower: Boolean = false;
+
   constructor(
     private rowersService: RowersService,
     private router: Router,
@@ -39,6 +43,11 @@ export class RowerListComponent implements OnInit {
     this.rowersService.getRowers()
       .then(response => this.rowersList = new ExampleDataSource(this.sampleDb = new ExampleDatabase(response)));
     this.urlPath = this.getParentPath();
+    // get fromAddEditRower optional parameter
+    this.activatedRoute.paramMap
+      .subscribe((params: ParamMap) => {
+        this.fromAddEditRower = Boolean(params.get('fromAddEditRower'));
+    });
   }
 
   delete(rowerId: string, index: number): void {

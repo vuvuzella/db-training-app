@@ -11,11 +11,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RowerEditComponent implements OnInit {
 
-  private sides: string[] = ['stroke', 'bow', 'timon and pumba', 'drummer'];
-  private formData: FormGroup;
-  private submitted: Boolean = false;
-  private rowerId: string;
-  private rowerInfo: Rower;
+  sides: string[] = ['stroke', 'bow', 'timon and pumba', 'drummer'];
+  formData: FormGroup;
+  submitted: Boolean = false;
+  rowerId: string;
+  // private rowerInfo: Rower;
 
   constructor(
     private formBuilder: FormBuilder,
